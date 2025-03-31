@@ -1,0 +1,48 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.zip
+
+# Node.js (Frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/cache/
+frontend/npm-debug.log
+frontend/yarn-error.log
+
+# Angular CLI
+frontend/.angular/cache
+frontend/.angular.json
+
+# Laravel (Backend)
+backend/vendor/
+backend/storage/logs/
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/public/storage/
+backend/.env
+backend/.env.backup
+backend/.phpunit.result.cache
+
+# IDEs and Editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/
+.history/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Coverage and Test Reports
+coverage/
+backend/coverage/
+frontend/coverage/
+backend/phpunit.xml.cache
