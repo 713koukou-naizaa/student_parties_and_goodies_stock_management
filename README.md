@@ -95,6 +95,9 @@ student_parties_and_goodies_stock_management/
 │   ├── public/                       # Publicly accessible files
 │   ├── resources/                    # Blade templates (if needed)
 │   ├── storage/                      # File storage
+│   │   ├── events.json               # JSON file for events data
+│   │   ├── reservations.json         # JSON file for reservations data
+│   │   └── goodies.json              # JSON file for goodies data
 │   ├── .env                          # Environment configuration
 │   ├── composer.json                 # PHP dependencies
 │   ├── artisan                       # Laravel CLI
@@ -113,11 +116,6 @@ student_parties_and_goodies_stock_management/
 │   │   ├── app-routing.module.ts     # Application routing module
 │   │   ├── app.module.ts             # Root Angular module
 │   │   └── app.component.ts          # Root Angular component
-│   ├── assets/                       # Static assets (e.g., JSON data)
-│   │   └── data/                     # Directory for data files
-│   │       ├── events.json           # JSON file for events data
-│   │       ├── reservations.json     # JSON file for reservations data
-│   │       └── goodies.json          # JSON file for goodies data
 │   ├── environments/                 # Environment-specific configurations
 │   ├── index.html                    # Main HTML file
 │   ├── main.ts                       # Main entry point for Angular
