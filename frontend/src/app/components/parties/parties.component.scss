@@ -1,15 +1,69 @@
 .parties-list {
-    margin: 20px;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
   }
-  
-  .parties-list ul {
+
+  button {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  ul {
     list-style-type: none;
     padding: 0;
   }
-  
-  .parties-list li {
-    margin-bottom: 15px;
-    padding: 10px;
+
+  .party-item {
+    margin-bottom: 20px;
+    padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .party-header {
+      margin-bottom: 10px;
+
+      h3 {
+        margin: 0;
+        font-size: 20px;
+        color: #333;
+      }
+
+      p {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+
+    .party-details {
+      p {
+        font-size: 14px;
+        color: #444;
+      }
+
+      p strong {
+        color: #000;
+      }
+    }
   }
+}
