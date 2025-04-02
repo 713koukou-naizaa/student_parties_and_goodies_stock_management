@@ -77,6 +77,35 @@ Le projet doit être soumis sous la forme d’une archive zip (*sans `node_modul
 
 **Date limite de rendu** : Vendredi 4 avril 2025 en fin de séance.
 
+## Implemented Features
+
+### Parties
+
+- [✔] List of parties
+- [x] Search for parties
+- [x] Filter parties
+- [x] Add party (not specified)
+- [x] Edit party (not specified)
+- [x] Delete party (not specified)
+
+### Reservations
+
+- [✔] List of reservations
+- [x] Search for reservations
+- [x] Filter reservations
+- [x] Add reservations manually (form)
+- [x] Edit reservations
+- [x] Delete reservations
+
+### Goodies
+
+- [✔] List of goodies
+- [x] Search for goodies
+- [x] Filter goodies
+- [x] Add goodies
+- [x] Edit goodies quantity
+- [x] Delete goodies
+
 ## Project Structure
 
 The project is organized as follows:
