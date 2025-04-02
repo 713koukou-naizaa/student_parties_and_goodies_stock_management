@@ -1,1 +1,9 @@
-<p>reservations works!</p>
+<div class="reservations-list">
+    <h2>Reservations List</h2>
+    <ul>
+      <li *ngFor="let currentReservation of aReservationsArray">
+        <strong>{{ currentReservation.student_name }}</strong> - {{ currentReservation.party_name }} - {{ currentReservation.reservation_date | date }}
+        <p>{{ currentReservation.reservation_status }}</p>
+      </li>
+    </ul>
+  </div>

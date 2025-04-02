@@ -3,7 +3,7 @@
       "student_name": "John Doe",
       "student_email": "john.doe@example.com",
       "student_phone": "1234567890",
-      "event_name": "Soirée Fluo",
+      "party_name": "Soirée Fluo",
       "reservation_date": "2025-04-01",
       "reservation_status": "Confirmée",
       "goodies": ["1 bracelet", "1 t-shirt"]
@@ -12,7 +12,7 @@
       "student_name": "Jane Smith",
       "student_email": "jane.smith@example.com",
       "student_phone": "0987654321",
-      "event_name": "Bal de Promo",
+      "party_name": "Bal de Promo",
       "reservation_date": "2025-04-02",
       "reservation_status": "En attente",
       "goodies": ["1 sticker"]
