@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\GoodieController;
+use App\Http\Controllers\PartiesController;
+use App\Http\Controllers\ReservationsController;
+use App\Http\Controllers\GoodiesController;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('events', EventController::class);
-Route::apiResource('reservations', ReservationController::class);
-Route::apiResource('goodies', GoodieController::class);
+Route::apiResource('events', PartiesController::class);
+Route::apiResource('reservations', ReservationsController::class);
+Route::apiResource('goodies', GoodiesController::class);
 
 Route::get('/events', function () {
     $eventsPath = storage_path('json/events.json');
