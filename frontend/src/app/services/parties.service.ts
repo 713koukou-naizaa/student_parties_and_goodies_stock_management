@@ -10,7 +10,5 @@ export class PartiesService {
 
   constructor(private http: HttpClient) {}
 
-  getParties(): Observable<any> {
-    return this.http.get(this.aAPIURL);
-  }
+  getParties(): Observable<any> { return this.http.get(this.aAPIURL); }
 }

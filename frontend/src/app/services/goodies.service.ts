@@ -10,7 +10,5 @@ export class GoodiesService {
 
   constructor(private http: HttpClient) {}
 
-  getGoodies(): Observable<any> {
-    return this.http.get(this.aAPIURL);
-  }
+  getGoodies(): Observable<any> { return this.http.get(this.aAPIURL); }
 }
