@@ -1,1 +1,9 @@
-<p>parties works!</p>
+<div class="parties-list">
+    <h2>Parties List</h2>
+    <ul>
+      <li *ngFor="let party of aPartiesArray">
+        <strong>{{ party.party_name }}</strong> - {{ party.date_time | date }}
+        <p>{{ party.theme }}</p>
+      </li>
+    </ul>
+  </div>

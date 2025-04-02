@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PartiesService {
-  private apiUrl = 'http://localhost:8000/api/events'; // Laravel API endpoint
+  private aAPIURL = 'http://localhost:8000/api/parties'; // Laravel API endpoint
 
   constructor(private http: HttpClient) {}
 
-  getEvents(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getParties(): Observable<any> {
+    return this.http.get(this.aAPIURL);
   }
 }
