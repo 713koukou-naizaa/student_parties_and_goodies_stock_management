@@ -1,0 +1,18 @@
+[
+    {
+      "event_name": "Soirée Fluo",
+      "location": "Club XYZ",
+      "date_time": "2025-04-10T20:00:00",
+      "entry_price": 10.0,
+      "max_capacity": 200,
+      "theme": "Fluo"
+    },
+    {
+      "event_name": "Bal de Promo",
+      "location": "Salle des fêtes",
+      "date_time": "2025-05-15T19:00:00",
+      "entry_price": 15.0,
+      "max_capacity": 300,
+      "theme": "Chic"
+    }
+  ]
