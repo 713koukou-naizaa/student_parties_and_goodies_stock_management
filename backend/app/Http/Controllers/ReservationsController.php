@@ -11,7 +11,8 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        //
+        $reservationsPath = storage_path('json/reservations.json');
+        return response()->json(json_decode(file_get_contents($reservationsPath), true));
     }
 
     /**

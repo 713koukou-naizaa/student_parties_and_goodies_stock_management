@@ -11,7 +11,8 @@ class GoodiesController extends Controller
      */
     public function index()
     {
-        //
+        $goodiesPath = storage_path('json/goodies.json');
+        return response()->json(json_decode(file_get_contents($goodiesPath), true));
     }
 
     /**

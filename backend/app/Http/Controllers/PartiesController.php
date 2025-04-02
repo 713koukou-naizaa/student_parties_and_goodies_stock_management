@@ -11,7 +11,8 @@ class PartiesController extends Controller
      */
     public function index()
     {
-        //
+        $partiesPath = storage_path('json/parties.json');
+        return response()->json(json_decode(file_get_contents($partiesPath), true));
     }
 
     /**
