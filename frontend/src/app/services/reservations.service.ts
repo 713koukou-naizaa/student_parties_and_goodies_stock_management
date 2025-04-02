@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ReservationService {
+export class ReservationsService {
   private apiUrl = 'http://localhost:8000/api/events'; // Laravel API endpoint
 
   constructor(private http: HttpClient) {}

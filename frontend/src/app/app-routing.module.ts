@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { StudentPartiesComponent } from './components/student-parties/student-parties.component';
+import { PartiesComponent } from './components/parties/parties.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
-import { GoodiesStockComponent } from './components/goodies-stock/goodies-stock.component';
+import { GoodiesComponent } from './components/goodies/goodies.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'student-parties', component: StudentPartiesComponent },
+  { path: 'parties', component: PartiesComponent },
   { path: 'reservations', component: ReservationsComponent },
-  { path: 'goodies-stock', component: GoodiesStockComponent },
+  { path: 'goodies', component: GoodiesComponent },
 ];
 
 @NgModule({

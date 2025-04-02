@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class GoodieController extends Controller
+class GoodiesController extends Controller
 {
     /**
      * Display a listing of the resource.
