@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GoodiesService } from '../../services/goodies.service';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-goodies',
-  imports: [],
+  imports: [RouterModule, CommonModule],
   templateUrl: './goodies.component.html',
   styleUrl: './goodies.component.scss'
 })
-export class GoodiesComponent {
+export class GoodiesComponent implements OnInit {
+  aGoodiesArray: any[] = [];
 
+  constructor(private goodiesService: GoodiesService) {}
+
+  ngOnInit(): void { this.goodiesService.getGoodies().subscribe((data) => { this.aGoodiesArray = data }) }
 }

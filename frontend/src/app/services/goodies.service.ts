@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GoodiesService {
-  private apiUrl = 'http://localhost:8000/api/events'; // Laravel API endpoint
+  private aAPIURL = 'http://localhost:8000/api/goodies'; // Laravel API endpoint
 
   constructor(private http: HttpClient) {}
 
-  getEvents(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getGoodies(): Observable<any> {
+    return this.http.get(this.aAPIURL);
   }
 }

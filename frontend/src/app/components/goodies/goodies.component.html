@@ -1,1 +1,10 @@
-<p>goodies works!</p>
+<div class="goodies-list">
+  <h2>Goodies List</h2>
+  <ul>
+    <li *ngFor="let goodie of aGoodiesArray">
+      <strong>{{ goodie.goodie_name }}</strong> - {{ goodie.quantity_available }} available
+      <p>{{ goodie.description }}</p>
+      <p>Unit Cost: {{ goodie.unit_cost | currency }}</p>
+    </li>
+  </ul>
+</div>
