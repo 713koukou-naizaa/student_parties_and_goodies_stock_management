@@ -1,4 +1,4 @@
-# Events and Goodies Stock Management Project with Angular and Laravel
+# Parties and Goodies Stock Management Project with Angular and Laravel
 
 This project ABC
 
