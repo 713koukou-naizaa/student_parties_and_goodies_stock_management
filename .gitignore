@@ -22,6 +22,8 @@ backend/storage/framework/cache/*
 backend/storage/framework/sessions/*
 backend/storage/framework/views/*
 backend/public/storage/
+backend/public/prerendered-routes.json
+backend/public/3rdpartylicenses.txt
 backend/.env
 backend/.env.backup
 backend/.phpunit.result.cache
