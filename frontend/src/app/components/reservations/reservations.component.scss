@@ -2,14 +2,27 @@
     margin: 20px;
   }
   
-  .reservations-list ul {
-    list-style-type: none;
-    padding: 0;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
   }
   
-  .reservations-list li {
-    margin-bottom: 15px;
-    padding: 10px;
+  th, td {
     border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
   }
