@@ -102,9 +102,9 @@ Le projet doit être soumis sous la forme d’une archive zip (*sans `node_modul
 - [✔] List of goodies
 - [✔] Search for goodies
 - [✔] Filter goodies
-- [x] Add goodies
-- [x] Edit goodies quantity
-- [x] Delete goodies
+- [✔] Add goodies
+- [✔] Edit goodies quantity
+- [✔] Delete goodies
 
 ## Project Structure
 
