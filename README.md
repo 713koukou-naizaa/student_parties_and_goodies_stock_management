@@ -82,8 +82,8 @@ Le projet doit être soumis sous la forme d’une archive zip (*sans `node_modul
 ### Parties
 
 - [✔] List of parties
-- [x] Search for parties
-- [x] Filter parties
+- [✔] Search for parties
+- [✔] Filter parties
 - [x] Add party (not specified)
 - [x] Edit party (not specified)
 - [x] Delete party (not specified)
