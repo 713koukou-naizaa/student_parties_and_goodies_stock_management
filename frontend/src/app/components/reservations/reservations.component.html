@@ -51,8 +51,28 @@
             <li *ngFor="let goodie of currentReservation.goodies">{{ goodie }}</li>
           </ul>
         </td>
-        <td> <button (click)="deleteReservation(i)">Delete</button> </td>
+        <td>
+          <button (click)="editReservation(i)">Edit</button>
+          <button (click)="deleteReservation(i)">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <form *ngIf="aIsEditing" (ngSubmit)="updateReservation()" #editForm="ngForm" class="edit-reservation-form">
+    <h3>Edit Reservation</h3>
+    <input type="text" placeholder="Student Name" [(ngModel)]="aEditingReservation.student_name" name="student_name" required />
+    <input type="email" placeholder="Student Email" [(ngModel)]="aEditingReservation.student_email" name="student_email" required />
+    <input type="text" placeholder="Student Phone" [(ngModel)]="aEditingReservation.student_phone" name="student_phone" required />
+    <input type="text" placeholder="Party Name" [(ngModel)]="aEditingReservation.party_name" name="party_name" required />
+    <input type="date" placeholder="Reservation Date" [(ngModel)]="aEditingReservation.reservation_date" name="reservation_date" required />
+    <select [(ngModel)]="aEditingReservation.reservation_status" name="reservation_status" required>
+      <option value="Confirmée">Confirmée</option>
+      <option value="En attente">En attente</option>
+      <option value="Annulée">Annulée</option>
+    </select>
+    <input type="text" placeholder="Goodies (comma-separated)" [(ngModel)]="aEditingReservation.goodies" name="goodies" />
+    <button type="submit" [disabled]="!editForm.valid">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
 </div>

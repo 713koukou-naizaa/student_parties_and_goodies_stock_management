@@ -17,4 +17,11 @@ export class ReservationsService {
 
   // used to delete a reservation by sending DELETE request with reservation data
   deleteReservation(reservation: any): Observable<any> { return this.http.request('delete', `${this.aAPIURL}`, { body: reservation }); }
+
+  // used to edit a reversation by sending a PUT request with reservation data
+  updateReservation(reservation: any): Observable<any>
+  {
+    const URL = `${this.aAPIURL}/${reservation.id}`; // include reservation ID in URL
+    return this.http.put<any>(URL, reservation);
+  }
 }

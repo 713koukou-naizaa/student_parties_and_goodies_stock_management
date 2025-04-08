@@ -44,9 +44,24 @@ class ReservationsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $reservationsPath = storage_path('json/reservations.json');
+        $reservations = json_decode(file_get_contents($reservationsPath), true); // get existing reservations
+    
+        // update reservation
+        // filter out the reservation to be updated by searching for id
+        foreach ($reservations as &$reservation) {
+            if ($reservation['id'] == $id) {
+                $reservation = array_merge($reservation, $request->all()); // update reservation data
+                break;
+            }
+        }
+    
+        // Save to JSON file
+        file_put_contents($reservationsPath, json_encode($reservations, JSON_PRETTY_PRINT));
+    
+        return response()->json(['message' => 'Reservation updated successfully'], 200);
     }
 
     /**

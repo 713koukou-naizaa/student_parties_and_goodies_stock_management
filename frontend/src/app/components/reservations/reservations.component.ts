@@ -25,6 +25,8 @@ export class ReservationsComponent implements OnInit {
     reservation_status: 'Confirmée',
     goodies: []
   };
+  aIsEditing: boolean = false;
+  aEditingReservation: any = {};
 
   constructor(private ReservationsService: ReservationsService) {}
 
@@ -55,6 +57,28 @@ export class ReservationsComponent implements OnInit {
     this.ReservationsService.deleteReservation(reservationToDelete).subscribe(() => {
       this.loadReservations(); // reload reservations after deleting
     });
+  }
+
+  editReservation(index: number): void {
+    this.aIsEditing = true;
+    this.aEditingReservation = { ...this.aFilteredReservationsArray[index] }; // clone reservation to avoid modifying original
+  }
+
+  updateReservation(): void {
+    // convert goodies string to array
+    if (typeof this.aEditingReservation.goodies === 'string') {
+      this.aEditingReservation.goodies = this.aEditingReservation.goodies.split(',').map((g: string) => g.trim());
+    }
+
+    this.ReservationsService.updateReservation(this.aEditingReservation).subscribe(() => {
+      this.loadReservations(); // reload reservations after updating
+      this.aIsEditing = false; // leave exit mode
+    });
+  }
+
+  cancelEdit(): void {
+    this.aIsEditing = false;
+    this.aEditingReservation = {};
   }
 
   resetForm(): void {
