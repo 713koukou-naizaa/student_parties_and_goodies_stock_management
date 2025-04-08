@@ -21,17 +21,5 @@
         "goodies": [
             "1 sticker"
         ]
-    },
-    {
-        "student_name": "noname",
-        "student_email": "noname@nomail.void",
-        "student_phone": "0987654321",
-        "party_name": "noparty",
-        "reservation_date": "2000-01-01",
-        "reservation_status": "Confirm\u00e9e",
-        "goodies": [
-            "none",
-            "myself"
-        ]
     }
 ]

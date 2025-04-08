@@ -49,6 +49,14 @@ export class ReservationsComponent implements OnInit {
     });
   }
 
+  deleteReservation(index: number): void {
+    const reservationToDelete = this.aFilteredReservationsArray[index];
+  
+    this.ReservationsService.deleteReservation(reservationToDelete).subscribe(() => {
+      this.loadReservations(); // reload reservations after deleting
+    });
+  }
+
   resetForm(): void {
     this.aNewReservation = {
       student_name: '',

@@ -52,8 +52,23 @@ class ReservationsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $reservationsPath = storage_path('json/reservations.json');
+        $reservations = json_decode(file_get_contents($reservationsPath), true); // get existing reservations
+    
+        // remove reservation
+        // filter out the reservation to be deleted by searching for student email and party name
+        $reservations = array_filter($reservations, function ($reservation) use ($request) {
+            return !(
+                $reservation['student_email'] === $request->student_email &&
+                $reservation['party_name'] === $request->party_name
+            );
+        });
+    
+        // save to JSON file
+        file_put_contents($reservationsPath, json_encode(array_values($reservations), JSON_PRETTY_PRINT));
+    
+        return response()->json(['message' => 'Reservation deleted successfully'], 200);
     }
 }

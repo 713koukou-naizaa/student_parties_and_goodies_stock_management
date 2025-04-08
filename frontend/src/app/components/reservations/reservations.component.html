@@ -39,7 +39,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let currentReservation of aFilteredReservationsArray">
+      <tr *ngFor="let currentReservation of aFilteredReservationsArray; let i = index">
         <td>{{ currentReservation.student_name }}</td>
         <td>{{ currentReservation.student_email }}</td>
         <td>{{ currentReservation.student_phone }}</td>
@@ -51,6 +51,7 @@
             <li *ngFor="let goodie of currentReservation.goodies">{{ goodie }}</li>
           </ul>
         </td>
+        <td> <button (click)="deleteReservation(i)">Delete</button> </td>
       </tr>
     </tbody>
   </table>
