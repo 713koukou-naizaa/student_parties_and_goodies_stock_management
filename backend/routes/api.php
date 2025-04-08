@@ -30,3 +30,4 @@ Route::apiResource('reservations', ReservationsController::class);
 Route::delete('/reservations', [ReservationsController::class, 'destroy']); // delete route not created by apiResource
 Route::put('/reservations/{id}', [ReservationsController::class, 'update']);
 Route::apiResource('goodies', GoodiesController::class);
+Route::delete('/goodies', [GoodiesController::class, 'destroy']); // delete route not created by apiResource

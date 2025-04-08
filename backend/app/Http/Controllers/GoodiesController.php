@@ -20,7 +20,18 @@ class GoodiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $goodiesPath = storage_path('json/goodies.json');
+        $goodies = json_decode(file_get_contents($goodiesPath), true); // get existing goodies
+
+        // add new goodie
+        $newGoodie = $request->all(); // get data from request
+        $newGoodie['id'] = count($goodies) + 1; // set id
+        $goodies[] = $newGoodie; // add new goodie to existing goodies
+
+        // save to JSON file
+        file_put_contents($goodiesPath, json_encode($goodies, JSON_PRETTY_PRINT));
+
+        return response()->json(['message' => 'Goodie added successfully'], 201);
     }
 
     /**
@@ -42,8 +53,20 @@ class GoodiesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $goodiesPath = storage_path('json/goodies.json');
+        $goodies = json_decode(file_get_contents($goodiesPath), true); // get existing goodies
+
+        // remove goodie
+        // filter out the goodie to be deleted by searching for goodie name
+        $goodies = array_filter($goodies, function ($goodie) use ($request) {
+            return $goodie['goodie_name'] !== $request->goodie_name;
+        });
+
+        // Save to JSON file
+        file_put_contents($goodiesPath, json_encode(array_values($goodies), JSON_PRETTY_PRINT));
+
+        return response()->json(['message' => 'Goodie deleted successfully'], 200);
     }
 }

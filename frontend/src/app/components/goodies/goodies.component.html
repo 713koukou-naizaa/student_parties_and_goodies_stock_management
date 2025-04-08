@@ -1,6 +1,15 @@
 <div class="goodies-list">
   <h2>Goodies List</h2>
 
+  <form (ngSubmit)="addGoodie()" #goodieForm="ngForm" class="add-goodie-form">
+    <h3>Add New Goodie</h3>
+    <input type="text" placeholder="Goodie Name" [(ngModel)]="aNewGoodie.goodie_name" name="goodie_name" required />
+    <input type="number" placeholder="Quantity Available" [(ngModel)]="aNewGoodie.quantity_available" name="quantity_available" required />
+    <input type="text" placeholder="Description" [(ngModel)]="aNewGoodie.description" name="description" required />
+    <input type="number" placeholder="Unit Cost" [(ngModel)]="aNewGoodie.unit_cost" name="unit_cost" required />
+    <button type="submit" [disabled]="!goodieForm.valid">Add Goodie</button>
+  </form>
+
   <input
     type="text"
     placeholder="Search goodies..."
@@ -10,11 +19,12 @@
   />
 
   <div class="goodies-container">
-    <div class="goodie-card" *ngFor="let goodie of aFilteredGoodiesArray">
+    <div class="goodie-card" *ngFor="let goodie of aFilteredGoodiesArray; let i = index">
       <h3>{{ goodie.goodie_name }}</h3>
       <p><strong>Description:</strong> {{ goodie.description }}</p>
       <p><strong>Quantity Available:</strong> {{ goodie.quantity_available }}</p>
       <p><strong>Unit Cost:</strong> {{ goodie.unit_cost | currency }}</p>
+      <button (click)="deleteGoodie(i)">Delete</button>
     </div>
   </div>
 </div>

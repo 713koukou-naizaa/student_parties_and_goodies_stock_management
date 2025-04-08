@@ -14,13 +14,42 @@ export class GoodiesComponent implements OnInit {
   aGoodiesArray: any[] = [];
   aFilteredGoodiesArray: any[] = [];
   aSearchQuery: string = '';
+  aNewGoodie: any = {
+    goodie_name: '',
+    quantity_available: 0,
+    description: '',
+    unit_cost: 0
+  };
 
   constructor(private goodiesService: GoodiesService) {}
 
   ngOnInit(): void {
+    this.loadGoodies();
+  }
+
+  loadGoodies(): void {
     this.goodiesService.getGoodies().subscribe((data) => {
       this.aGoodiesArray = data;
       this.aFilteredGoodiesArray = data;
+    });
+  }
+
+  addGoodie(): void {
+    this.goodiesService.addGoodie(this.aNewGoodie).subscribe(() => {
+      this.loadGoodies();
+      this.aNewGoodie = {
+        goodie_name: '',
+        quantity_available: 0,
+        description: '',
+        unit_cost: 0
+      };
+    });
+  }
+
+  deleteGoodie(index: number): void {
+    const goodieToDelete = this.aFilteredGoodiesArray[index];
+    this.goodiesService.deleteGoodie(goodieToDelete).subscribe(() => {
+      this.loadGoodies();
     });
   }
 

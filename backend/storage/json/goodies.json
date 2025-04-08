@@ -1,20 +1,20 @@
 [
     {
-      "goodie_name": "Bracelet",
-      "quantity_available": 100,
-      "description": "Glow-in-the-dark bracelet",
-      "unit_cost": 1.5
+        "goodie_name": "Bracelet",
+        "quantity_available": 100,
+        "description": "Glow-in-the-dark bracelet",
+        "unit_cost": 1.5
     },
     {
-      "goodie_name": "T-shirt",
-      "quantity_available": 50,
-      "description": "Event-themed t-shirt",
-      "unit_cost": 10.0
+        "goodie_name": "T-shirt",
+        "quantity_available": 50,
+        "description": "Event-themed t-shirt",
+        "unit_cost": 10
     },
     {
-      "goodie_name": "Sticker",
-      "quantity_available": 200,
-      "description": "Event logo sticker",
-      "unit_cost": 0.5
+        "goodie_name": "Sticker",
+        "quantity_available": 200,
+        "description": "Event logo sticker",
+        "unit_cost": 0.5
     }
-  ]
+]

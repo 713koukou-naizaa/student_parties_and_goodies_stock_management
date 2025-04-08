@@ -11,4 +11,8 @@ export class GoodiesService {
   constructor(private http: HttpClient) {}
 
   getGoodies(): Observable<any> { return this.http.get(this.aAPIURL); }
+
+  addGoodie(goodie: any): Observable<any> { return this.http.post<any>(this.aAPIURL, goodie); }
+
+  deleteGoodie(goodie: any): Observable<any> { return this.http.request('delete', this.aAPIURL, { body: goodie }); }
 }
