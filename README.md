@@ -183,11 +183,7 @@ Before you begin, ensure you have the following installed:
    composer install
    cp .env.example .env
    php artisan key:generate
-   php artisan migrate
    php artisan serve
-   ```
-
-   Don't forget to update the `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` values in the `.env` file.
 
    The Laravel backend will be accessible at `http://localhost:8000`
 
@@ -213,14 +209,6 @@ Before you begin, ensure you have the following installed:
    cp -r dist/frontend/* ../backend/public/
    ```
 
-6. **Set up the backend (Laravel):**
-
-   ```bash
-   cd ../backend
-   composer install
-   cp .env.example .env
-   ```
-
-7. **Access the application:**
+6. **Access the application:**
 
    Open your web browser and navigate to `http://localhost:4200/` to access the application.
