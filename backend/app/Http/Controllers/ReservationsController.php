@@ -20,7 +20,17 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reservationsPath = storage_path('json/reservations.json');
+        $reservations = json_decode(file_get_contents($reservationsPath), true); // get existing reservations
+    
+        // add new reservation
+        $newReservation = $request->all(); // get data from request
+        $reservations[] = $newReservation; // add new reservation to existing reservations
+    
+        // save to JSON file
+        file_put_contents($reservationsPath, json_encode($reservations, JSON_PRETTY_PRINT));
+    
+        return response()->json(['message' => 'Reservation added successfully'], 201);
     }
 
     /**

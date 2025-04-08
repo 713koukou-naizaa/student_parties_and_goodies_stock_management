@@ -1,4 +1,21 @@
 <div class="reservations-list">
+
+  <form (ngSubmit)="addReservation()" #reservationForm="ngForm" class="add-reservation-form">
+    <h3>Add New Reservation</h3>
+    <input type="text" placeholder="Student Name" [(ngModel)]="aNewReservation.student_name" name="student_name" required />
+    <input type="email" placeholder="Student Email" [(ngModel)]="aNewReservation.student_email" name="student_email" required />
+    <input type="text" placeholder="Student Phone" [(ngModel)]="aNewReservation.student_phone" name="student_phone" required />
+    <input type="text" placeholder="Party Name" [(ngModel)]="aNewReservation.party_name" name="party_name" required />
+    <input type="date" placeholder="Reservation Date" [(ngModel)]="aNewReservation.reservation_date" name="reservation_date" required />
+    <select [(ngModel)]="aNewReservation.reservation_status" name="reservation_status" required>
+      <option value="Confirmée">Confirmée</option>
+      <option value="En attente">En attente</option>
+      <option value="Annulée">Annulée</option>
+    </select>
+    <input type="text" placeholder="Goodies (comma-separated)" [(ngModel)]="aNewReservation.goodies" name="goodies" />
+    <button type="submit" [disabled]="!reservationForm.valid">Add Reservation</button>
+  </form>
+
   <h2>Reservations List</h2>
 
   <input

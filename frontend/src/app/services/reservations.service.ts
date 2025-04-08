@@ -11,4 +11,7 @@ export class ReservationsService {
   constructor(private http: HttpClient) {}
 
   getReservations(): Observable<any> { return this.http.get(this.aAPIURL); }
+
+  // used to add a new reservation by sending POST request with observation data
+  addReservation(reservation: any): Observable<any> { return this.http.post<any>(this.aAPIURL, reservation); }
 }

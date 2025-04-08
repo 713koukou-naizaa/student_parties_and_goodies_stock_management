@@ -1,20 +1,37 @@
 [
     {
-      "student_name": "John Doe",
-      "student_email": "john.doe@example.com",
-      "student_phone": "1234567890",
-      "party_name": "Soirée Fluo",
-      "reservation_date": "2025-04-01",
-      "reservation_status": "Confirmée",
-      "goodies": ["1 bracelet", "1 t-shirt"]
+        "student_name": "John Doe",
+        "student_email": "john.doe@example.com",
+        "student_phone": "1234567890",
+        "party_name": "Soir\u00e9e Fluo",
+        "reservation_date": "2025-04-01",
+        "reservation_status": "Confirm\u00e9e",
+        "goodies": [
+            "1 bracelet",
+            "1 t-shirt"
+        ]
     },
     {
-      "student_name": "Jane Smith",
-      "student_email": "jane.smith@example.com",
-      "student_phone": "0987654321",
-      "party_name": "Bal de Promo",
-      "reservation_date": "2025-04-02",
-      "reservation_status": "En attente",
-      "goodies": ["1 sticker"]
+        "student_name": "Jane Smith",
+        "student_email": "jane.smith@example.com",
+        "student_phone": "0987654321",
+        "party_name": "Bal de Promo",
+        "reservation_date": "2025-04-02",
+        "reservation_status": "En attente",
+        "goodies": [
+            "1 sticker"
+        ]
+    },
+    {
+        "student_name": "noname",
+        "student_email": "noname@nomail.void",
+        "student_phone": "0987654321",
+        "party_name": "noparty",
+        "reservation_date": "2000-01-01",
+        "reservation_status": "Confirm\u00e9e",
+        "goodies": [
+            "none",
+            "myself"
+        ]
     }
-  ]
+]

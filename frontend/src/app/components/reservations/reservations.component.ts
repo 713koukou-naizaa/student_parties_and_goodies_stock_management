@@ -16,15 +16,50 @@ export class ReservationsComponent implements OnInit {
   aSortColumn: string = ''; // column to sort by
   aIsAscending: boolean = true; // sort direction
   aSearchQuery: string = '';
+  aNewReservation: any = {
+    student_name: '',
+    student_email: '',
+    student_phone: '',
+    party_name: '',
+    reservation_date: '',
+    reservation_status: 'Confirmée',
+    goodies: []
+  };
 
   constructor(private ReservationsService: ReservationsService) {}
 
   ngOnInit(): void {
+    this.loadReservations();
+  }
+
+  loadReservations(): void {
     this.ReservationsService.getReservations().subscribe((data) => {
       this.aReservationsArray = data;
       this.aFilteredReservationsArray = data;
-     });
-    }
+    });
+  }
+
+  addReservation(): void {
+    // convert goodies string to array
+    this.aNewReservation.goodies = this.aNewReservation.goodies.split(',').map((g: string) => g.trim());
+
+    this.ReservationsService.addReservation(this.aNewReservation).subscribe(() => {
+      this.loadReservations(); // reload reservations after adding
+      this.resetForm(); // reset form
+    });
+  }
+
+  resetForm(): void {
+    this.aNewReservation = {
+      student_name: '',
+      student_email: '',
+      student_phone: '',
+      party_name: '',
+      reservation_date: '',
+      reservation_status: 'Confirmée',
+      goodies: []
+    };
+  }
 
     /**
    * Sorts the reservations array by the specified column.
