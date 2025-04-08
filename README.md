@@ -91,8 +91,8 @@ Le projet doit être soumis sous la forme d’une archive zip (*sans `node_modul
 ### Reservations
 
 - [✔] List of reservations
-- [x] Search for reservations
-- [x] Filter reservations
+- [✔] Search for reservations
+- [✔] Filter reservations
 - [x] Add reservations manually (form)
 - [x] Edit reservations
 - [x] Delete reservations
