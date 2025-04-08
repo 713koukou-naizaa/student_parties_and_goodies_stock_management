@@ -8,21 +8,22 @@
     margin-top: 20px;
   }
   
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
   th {
-    background-color: #f4f4f4;
-    font-weight: bold;
+    cursor: pointer;
+    position: relative;
   }
   
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
+  th::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    border: 5px solid transparent;
   }
   
-  tr:hover {
-    background-color: #f1f1f1;
+  th.sorted-asc::after {
+    border-bottom-color: #000;
+  }
+  
+  th.sorted-desc::after {
+    border-top-color: #000;
   }
