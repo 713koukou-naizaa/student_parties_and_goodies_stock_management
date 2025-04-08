@@ -93,9 +93,9 @@ Le projet doit être soumis sous la forme d’une archive zip (*sans `node_modul
 - [✔] List of reservations
 - [✔] Search for reservations
 - [✔] Filter reservations
-- [x] Add reservations manually (form)
-- [x] Edit reservations
-- [x] Delete reservations
+- [✔] Add reservations manually (form)
+- [✔] Edit reservations
+- [✔] Delete reservations
 
 ### Goodies
 
