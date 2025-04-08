@@ -213,6 +213,14 @@ Before you begin, ensure you have the following installed:
    cp -r dist/frontend/* ../backend/public/
    ```
 
-6. **Access the application:**
+6. **Set up the backend (Laravel):**
+
+   ```bash
+   cd ../backend
+   composer install
+   cp .env.example .env
+   ```
+
+7. **Access the application:**
 
    Open your web browser and navigate to `http://localhost:4200/` to access the application.
