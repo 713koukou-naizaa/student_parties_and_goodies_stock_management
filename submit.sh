@@ -43,4 +43,4 @@ zip -r student_parties_and_goodies_stock_management.zip . \
     -x "backend/storage/logs/*" \
     -x "backend/storage/framework/*"
 
-echo "Project prepared for submisison"
+echo "Project prepared for submission"

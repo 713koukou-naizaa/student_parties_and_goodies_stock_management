@@ -200,15 +200,9 @@ Before you begin, ensure you have the following installed:
 4. **Build for production:**
 
    ```bash
-   ng build --prod
+   ng build
    ```
 
-5. **Copy build artifacts to backend:**
-
-   ```bash
-   cp -r dist/frontend/* ../backend/public/
-   ```
-
-6. **Access the application:**
+5. **Access the application:**
 
    Open your web browser and navigate to `http://localhost:4200/` to access the application.
