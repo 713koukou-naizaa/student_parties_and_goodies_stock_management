@@ -24,7 +24,16 @@
       <p><strong>Description:</strong> {{ goodie.description }}</p>
       <p><strong>Quantity Available:</strong> {{ goodie.quantity_available }}</p>
       <p><strong>Unit Cost:</strong> {{ goodie.unit_cost | currency }}</p>
+      <button (click)="startEditQuantity(i)">Edit Quantity</button>
       <button (click)="deleteGoodie(i)">Delete</button>
     </div>
   </div>
+
+  <form *ngIf="aIsEditingQuantity" (ngSubmit)="updateGoodieQuantity()" #editQuantityForm="ngForm" class="edit-quantity-form">
+    <h3>Edit Goodie Quantity</h3>
+    <p><strong>Goodie:</strong> {{ aEditingGoodie.goodie_name }}</p>
+    <input type="number" placeholder="New Quantity" [(ngModel)]="aEditingGoodie.quantity_available" name="quantity_available" required />
+    <button type="submit" [disabled]="!editQuantityForm.valid">Save Changes</button>
+    <button type="button" (click)="cancelEditQuantity()">Cancel</button>
+  </form>
 </div>

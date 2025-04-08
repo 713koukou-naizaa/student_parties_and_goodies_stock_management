@@ -20,6 +20,8 @@ export class GoodiesComponent implements OnInit {
     description: '',
     unit_cost: 0
   };
+  aIsEditingQuantity: boolean = false;
+  aEditingGoodie: any = {};
 
   constructor(private goodiesService: GoodiesService) {}
 
@@ -51,6 +53,23 @@ export class GoodiesComponent implements OnInit {
     this.goodiesService.deleteGoodie(goodieToDelete).subscribe(() => {
       this.loadGoodies();
     });
+  }
+
+  startEditQuantity(index: number): void {
+    this.aIsEditingQuantity = true;
+    this.aEditingGoodie = { ...this.aFilteredGoodiesArray[index] }; // clone goodie to avoid modifying original
+  }
+
+  updateGoodieQuantity(): void {
+    this.goodiesService.updateGoodie(this.aEditingGoodie).subscribe(() => {
+      this.loadGoodies(); // reload goodies after updating
+      this.aIsEditingQuantity = false; // exit edit mode
+    });
+  }
+
+  cancelEditQuantity(): void {
+    this.aIsEditingQuantity = false;
+    this.aEditingGoodie = {};
   }
 
   /**

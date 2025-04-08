@@ -1,7 +1,7 @@
 [
     {
         "goodie_name": "Bracelet",
-        "quantity_available": 100,
+        "quantity_available": 1000,
         "description": "Glow-in-the-dark bracelet",
         "unit_cost": 1.5
     },

@@ -45,9 +45,24 @@ class GoodiesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $goodieName)
     {
-        //
+        $goodiesPath = storage_path('json/goodies.json');
+        $goodies = json_decode(file_get_contents($goodiesPath), true);
+    
+        // edit goodie
+        // filter out the goodie to be edited by searching for goodie name
+        foreach ($goodies as &$goodie) {
+            if ($goodie['goodie_name'] === $goodieName) {
+                $goodie['quantity_available'] = $request->quantity_available; // update quantity
+                break;
+            }
+        }
+    
+        // save to JSON file
+        file_put_contents($goodiesPath, json_encode($goodies, JSON_PRETTY_PRINT));
+    
+        return response()->json(['message' => 'Goodie quantity updated successfully'], 200);
     }
 
     /**
