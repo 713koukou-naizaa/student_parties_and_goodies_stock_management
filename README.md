@@ -84,9 +84,9 @@ Le projet doit être soumis sous la forme d’une archive zip (*sans `node_modul
 - [✔] List of parties
 - [✔] Search for parties
 - [✔] Filter parties
-- [x] Add party (not specified)
-- [x] Edit party (not specified)
-- [x] Delete party (not specified)
+- [✔] Add party (not specified)
+- [✔] Edit party (not specified)
+- [✔] Delete party (not specified)
 
 ### Reservations
 
