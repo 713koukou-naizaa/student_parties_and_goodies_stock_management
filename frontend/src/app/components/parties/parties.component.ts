@@ -16,14 +16,63 @@ export class PartiesComponent implements OnInit {
   aFilteredPartiesArray: any[] = []; // filtered array after search
   aSearchQuery: string = ''; // search query when searching for parties
   aIsAscending: boolean = true; // sort state toggle
+  aNewParty: any = {
+    party_name: '',
+    location: '',
+    theme: '',
+    entry_price: 0,
+    max_capacity: 0,
+    date_time: ''
+  };
+  aIsEditing: boolean = false;
+  aEditingParty: any = {};
 
   constructor(private PartiesService: PartiesService) {}
 
   ngOnInit(): void {
+    this.loadParties();
+  }
+
+  loadParties(): void {
     this.PartiesService.getParties().subscribe((data) => {
       this.aPartiesArray = data;
       this.aFilteredPartiesArray = data;
     });
+  }
+
+  addParty(): void {
+    this.PartiesService.addParty(this.aNewParty).subscribe(() => {
+      this.loadParties(); // reload parties after adding
+      this.resetForm(); // reset form
+    });
+  }
+
+  startEditParty(index: number): void {
+    this.aIsEditing = true;
+    this.aEditingParty = { ...this.aFilteredPartiesArray[index] }; // clone party to avoid modifying original
+  }
+
+  updateParty(): void {
+    this.PartiesService.updateParty(this.aEditingParty).subscribe(() => {
+      this.loadParties(); // reload parties after updating
+      this.aIsEditing = false; // exit editing mode
+    });
+  }
+
+  cancelEdit(): void {
+    this.aIsEditing = false;
+    this.aEditingParty = {};
+  }
+
+  resetForm(): void {
+    this.aNewParty = {
+      party_name: '',
+      location: '',
+      theme: '',
+      entry_price: 0,
+      max_capacity: 0,
+      date_time: ''
+    };
   }
 
   /**

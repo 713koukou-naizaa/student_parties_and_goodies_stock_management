@@ -11,4 +11,11 @@ export class PartiesService {
   constructor(private http: HttpClient) {}
 
   getParties(): Observable<any> { return this.http.get(this.aAPIURL); }
+
+  addParty(party: any): Observable<any> { return this.http.post<any>(this.aAPIURL, party); }
+  
+  updateParty(party: any): Observable<any> {
+    const url = `${this.aAPIURL}/${party.id}`;
+    return this.http.put<any>(url, party);
+  }
 }

@@ -1,10 +1,22 @@
 <div class="parties-list">
   <h2>Parties List</h2>
+
+  <form (ngSubmit)="addParty()" #partyForm="ngForm" class="add-party-form">
+    <h3>Add New Party</h3>
+    <input type="text" placeholder="Party Name" [(ngModel)]="aNewParty.party_name" name="party_name" required />
+    <input type="text" placeholder="Location" [(ngModel)]="aNewParty.location" name="location" required />
+    <input type="text" placeholder="Theme" [(ngModel)]="aNewParty.theme" name="theme" required />
+    <input type="number" placeholder="Entry Price" [(ngModel)]="aNewParty.entry_price" name="entry_price" required />
+    <input type="number" placeholder="Max Capacity" [(ngModel)]="aNewParty.max_capacity" name="max_capacity" required />
+    <input type="datetime-local" placeholder="Date and Time" [(ngModel)]="aNewParty.date_time" name="date_time" required />
+    <button type="submit" [disabled]="!partyForm.valid">Add Party</button>
+  </form>
+
   <input type="text" placeholder="Search parties..." [(ngModel)]="aSearchQuery" (input)="filterParties()"/>
   <button (click)="toggleSortOrder()">Toggle Sort Order</button>
   <p>Sorted by: {{ aIsAscending ? 'Ascending' : 'Descending' }}</p>
   <ul>
-    <li *ngFor="let currentParty of aFilteredPartiesArray" class="party-item">
+    <li *ngFor="let currentParty of aFilteredPartiesArray; let i = index" class="party-item">
       <div class="party-header">
         <h3>{{ currentParty.party_name }}</h3>
         <p><strong>Date:</strong> {{ currentParty.date_time | date:'fullDate' }} at {{ currentParty.date_time | date:'shortTime' }}</p>
@@ -14,7 +26,20 @@
         <p><strong>Theme:</strong> {{ currentParty.theme }}</p>
         <p><strong>Entry Price:</strong> {{ currentParty.entry_price | currency }}</p>
         <p><strong>Max Capacity:</strong> {{ currentParty.max_capacity }}</p>
+        <button (click)="startEditParty(i)">Edit</button>
       </div>
     </li>
   </ul>
+
+  <form *ngIf="aIsEditing" (ngSubmit)="updateParty()" #editPartyForm="ngForm" class="edit-party-form">
+    <h3>Edit Party</h3>
+    <input type="text" placeholder="Party Name" [(ngModel)]="aEditingParty.party_name" name="party_name" required />
+    <input type="text" placeholder="Location" [(ngModel)]="aEditingParty.location" name="location" required />
+    <input type="text" placeholder="Theme" [(ngModel)]="aEditingParty.theme" name="theme" required />
+    <input type="number" placeholder="Entry Price" [(ngModel)]="aEditingParty.entry_price" name="entry_price" required />
+    <input type="number" placeholder="Max Capacity" [(ngModel)]="aEditingParty.max_capacity" name="max_capacity" required />
+    <input type="datetime-local" placeholder="Date and Time" [(ngModel)]="aEditingParty.date_time" name="date_time" required />
+    <button type="submit" [disabled]="!editPartyForm.valid">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
 </div>

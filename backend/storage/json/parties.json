@@ -1,18 +1,29 @@
 [
     {
-      "party_name": "Soirée Fluo",
-      "location": "Club XYZ",
-      "date_time": "2025-04-10T20:00:00",
-      "entry_price": 10.0,
-      "max_capacity": 200,
-      "theme": "Fluo"
+        "id": 1,
+        "party_name": "Soir\u00e9e Fluo",
+        "location": "Club XYZ",
+        "date_time": "2025-04-10T20:00:00",
+        "entry_price": 10,
+        "max_capacity": 200,
+        "theme": "Fluo"
     },
     {
-      "party_name": "Bal de Promo",
-      "location": "Salle des fêtes",
-      "date_time": "2025-05-15T19:00:00",
-      "entry_price": 15.0,
-      "max_capacity": 300,
-      "theme": "Chic"
+        "id": 2,
+        "party_name": "Bal de Promo",
+        "location": "Salle des f\u00eates",
+        "date_time": "2025-05-15T19:00:00",
+        "entry_price": 15,
+        "max_capacity": 300,
+        "theme": "Chic"
+    },
+    {
+        "party_name": "fiestayouhouEdit",
+        "location": "fridge",
+        "theme": "food",
+        "entry_price": 1,
+        "max_capacity": 10,
+        "date_time": "2000-01-01T10:10",
+        "id": 3
     }
-  ]
+]
