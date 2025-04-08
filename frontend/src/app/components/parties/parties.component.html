@@ -16,7 +16,7 @@
   <button (click)="toggleSortOrder()">Toggle Sort Order</button>
   <p>Sorted by: {{ aIsAscending ? 'Ascending' : 'Descending' }}</p>
   <ul>
-    <li *ngFor="let currentParty of aFilteredPartiesArray; let i = index" class="party-item">
+    <li *ngFor="let currentParty of aFilteredPartiesArray; let id = index" class="party-item">
       <div class="party-header">
         <h3>{{ currentParty.party_name }}</h3>
         <p><strong>Date:</strong> {{ currentParty.date_time | date:'fullDate' }} at {{ currentParty.date_time | date:'shortTime' }}</p>
@@ -26,7 +26,8 @@
         <p><strong>Theme:</strong> {{ currentParty.theme }}</p>
         <p><strong>Entry Price:</strong> {{ currentParty.entry_price | currency }}</p>
         <p><strong>Max Capacity:</strong> {{ currentParty.max_capacity }}</p>
-        <button (click)="startEditParty(i)">Edit</button>
+        <button (click)="startEditParty(id)">Edit</button>
+        <button (click)="deleteParty(id)">Delete</button>
       </div>
     </li>
   </ul>

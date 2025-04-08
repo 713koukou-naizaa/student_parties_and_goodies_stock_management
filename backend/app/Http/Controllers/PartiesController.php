@@ -68,8 +68,30 @@ class PartiesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $partiesPath = storage_path('json/parties.json');
+        $parties = json_decode(file_get_contents($partiesPath), true); // get current parties
+
+        $reservationsPath = storage_path('json/reservations.json');
+        $reservations = json_decode(file_get_contents($reservationsPath), true); // get current reservations
+
+        // remove reservations
+        // filter out the reservations to be deleted by searching for party name
+        $reservations = array_filter($reservations, function ($reservation) use ($request) {
+            return $reservation['party_name'] !== $request->party_name;
+        });
+    
+        // remove party
+        // filter out the party to be deleted by searching for party name
+        $parties = array_filter($parties, function ($party) use ($request) {
+            return $party['party_name'] !== $request->party_name;
+        });
+    
+        // save to JSON file
+        file_put_contents($reservationsPath, json_encode($reservations, JSON_PRETTY_PRINT));
+        file_put_contents($partiesPath, json_encode(array_values($parties), JSON_PRETTY_PRINT));
+    
+        return response()->json(['message' => 'Party and associated reservations deleted successfully'], 200);
     }
 }

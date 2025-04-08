@@ -64,6 +64,14 @@ export class PartiesComponent implements OnInit {
     this.aEditingParty = {};
   }
 
+  deleteParty(index: number): void {
+    const partyToDelete = this.aFilteredPartiesArray[index];
+  
+    this.PartiesService.deleteParty(partyToDelete).subscribe(() => {
+      this.loadParties(); // reload parties after deletion
+    });
+  }
+
   resetForm(): void {
     this.aNewParty = {
       party_name: '',

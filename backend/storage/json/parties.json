@@ -1,14 +1,5 @@
 [
     {
-        "id": 1,
-        "party_name": "Soir\u00e9e Fluo",
-        "location": "Club XYZ",
-        "date_time": "2025-04-10T20:00:00",
-        "entry_price": 10,
-        "max_capacity": 200,
-        "theme": "Fluo"
-    },
-    {
         "id": 2,
         "party_name": "Bal de Promo",
         "location": "Salle des f\u00eates",

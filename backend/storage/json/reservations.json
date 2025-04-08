@@ -1,18 +1,5 @@
 [
     {
-        "id": 1,
-        "student_name": "John Dough",
-        "student_email": "john.doe@example.com",
-        "student_phone": "1234567890",
-        "party_name": "Soir\u00e9e Fluo",
-        "reservation_date": "2025-04-01",
-        "reservation_status": "Confirm\u00e9e",
-        "goodies": [
-            "1 bracelet",
-            "1 t-shirt"
-        ]
-    },
-    {
         "id": 2,
         "student_name": "Jane Smith",
         "student_email": "jane.smith@example.com",
@@ -23,17 +10,5 @@
         "goodies": [
             "1 sticker"
         ]
-    },
-    {
-        "student_name": "idStudent",
-        "student_email": "id@gmail.com",
-        "student_phone": "0987654321",
-        "party_name": "idParty",
-        "reservation_date": "2000-01-01",
-        "reservation_status": "Confirm\u00e9e",
-        "goodies": [
-            "id"
-        ],
-        "id": 3
     }
 ]

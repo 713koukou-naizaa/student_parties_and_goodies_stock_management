@@ -18,4 +18,7 @@ export class PartiesService {
     const url = `${this.aAPIURL}/${party.id}`;
     return this.http.put<any>(url, party);
   }
+
+  // used to delete a party by sending DELETE request with party data and party name
+  deleteParty(party: any): Observable<any> { return this.http.request('delete', this.aAPIURL, { body: { party_name: party.party_name } }); }
 }
