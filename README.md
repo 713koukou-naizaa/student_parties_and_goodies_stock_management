@@ -75,7 +75,7 @@ Vous devez développer la partie Angular et Laravel de l’application permettan
 
 Le projet doit être soumis sous la forme d’une archive zip (*sans `node_modules` et après `ng cache clean`*).
 
-**Date limite de rendu** : Vendredi 4 avril 2025 en fin de séance.
+**Date limite de rendu** : Mardi 8 avril 2025 23h59.
 
 ## Implemented Features
 
