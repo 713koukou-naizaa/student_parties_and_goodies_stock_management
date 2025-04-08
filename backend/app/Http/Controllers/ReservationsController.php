@@ -25,6 +25,7 @@ class ReservationsController extends Controller
     
         // add new reservation
         $newReservation = $request->all(); // get data from request
+        $newReservation['id'] = count($reservations) + 1; // set id
         $reservations[] = $newReservation; // add new reservation to existing reservations
     
         // save to JSON file

@@ -23,5 +23,17 @@
         "goodies": [
             "1 sticker"
         ]
+    },
+    {
+        "student_name": "idStudent",
+        "student_email": "id@gmail.com",
+        "student_phone": "0987654321",
+        "party_name": "idParty",
+        "reservation_date": "2000-01-01",
+        "reservation_status": "Confirm\u00e9e",
+        "goodies": [
+            "id"
+        ],
+        "id": 3
     }
 ]
