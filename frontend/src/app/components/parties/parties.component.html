@@ -1,9 +1,10 @@
 <div class="parties-list">
   <h2>Parties List</h2>
+  <input type="text" placeholder="Search parties..." [(ngModel)]="aSearchQuery" (input)="filterParties()"/>
   <button (click)="toggleSortOrder()">Toggle Sort Order</button>
   <p>Sorted by: {{ aIsAscending ? 'Ascending' : 'Descending' }}</p>
   <ul>
-    <li *ngFor="let currentParty of aPartiesArray" class="party-item">
+    <li *ngFor="let currentParty of aFilteredPartiesArray" class="party-item">
       <div class="party-header">
         <h3>{{ currentParty.party_name }}</h3>
         <p><strong>Date:</strong> {{ currentParty.date_time | date:'fullDate' }} at {{ currentParty.date_time | date:'shortTime' }}</p>

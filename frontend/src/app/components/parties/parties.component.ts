@@ -2,22 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { PartiesService } from '../../services/parties.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-parties',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   templateUrl: './parties.component.html',
   styleUrl: './parties.component.scss'
 })
 export class PartiesComponent implements OnInit {
   aPartiesArray: any[] = [];
+  aFilteredPartiesArray: any[] = []; // filtered array after search
+  aSearchQuery: string = ''; // search query when searching for parties
   aIsAscending: boolean = true; // sort state toggle
 
   constructor(private PartiesService: PartiesService) {}
 
   ngOnInit(): void {
     this.PartiesService.getParties().subscribe((data) => {
-      this.sortParties(data);
+      this.aPartiesArray = data;
+      this.aFilteredPartiesArray = data;
     });
   }
 
@@ -47,7 +52,26 @@ export class PartiesComponent implements OnInit {
   private sortParties(pPartiesArray: any[]): void {
     this.aPartiesArray = pPartiesArray.sort((a: any, b: any) => {
       const comparison = new Date(a.date_time).getTime() - new Date(b.date_time).getTime();
-      return this.aIsAscending ? comparison : -comparison;
+      return this.aIsAscending ? comparison : -comparison; // ternary operator : it verifies if aIsAscending is true, if so it returns comparison, if not it returns -comparison
     });
+  }
+
+  /**
+   * Filters the array of parties based on the search query.
+   *
+   * This method updates the aFilteredPartiesArray with parties whose
+   * name, location, or theme includes the current aSearchQuery,
+   * ignoring case. The search query is converted to lowercase to ensure
+   * a case-insensitive search.
+   */
+
+  filterParties(): void {
+    const searchQuery = this.aSearchQuery.toLowerCase(); // standardize search query
+    // filter the array of parties by verifying if the search query is included in the party name, location, or theme of the party
+    this.aFilteredPartiesArray = this.aPartiesArray.filter((party) =>
+      party.party_name.toLowerCase().includes(searchQuery) ||
+      party.location.toLowerCase().includes(searchQuery) ||
+      party.theme.toLowerCase().includes(searchQuery)
+    );
   }
 }
