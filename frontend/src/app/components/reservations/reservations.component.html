@@ -1,5 +1,14 @@
 <div class="reservations-list">
   <h2>Reservations List</h2>
+
+  <input
+  type="text"
+  placeholder="Search reservations..."
+  [(ngModel)]="aSearchQuery"
+  (input)="filterReservations()"
+  class="search-input"
+  />
+
   <table>
     <thead>
       <tr>
@@ -13,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let currentReservation of aReservationsArray">
+      <tr *ngFor="let currentReservation of aFilteredReservationsArray">
         <td>{{ currentReservation.student_name }}</td>
         <td>{{ currentReservation.student_email }}</td>
         <td>{{ currentReservation.student_phone }}</td>

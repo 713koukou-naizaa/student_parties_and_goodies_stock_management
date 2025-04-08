@@ -2,21 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationsService } from '../../services/reservations.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reservations',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   templateUrl: './reservations.component.html',
   styleUrl: './reservations.component.scss'
 })
 export class ReservationsComponent implements OnInit {
   aReservationsArray: any[] = [];
+  aFilteredReservationsArray: any[] = [];
   aSortColumn: string = ''; // column to sort by
   aIsAscending: boolean = true; // sort direction
+  aSearchQuery: string = '';
 
   constructor(private ReservationsService: ReservationsService) {}
 
-  ngOnInit(): void { this.ReservationsService.getReservations().subscribe((data) => { this.aReservationsArray = data }) }
+  ngOnInit(): void {
+    this.ReservationsService.getReservations().subscribe((data) => {
+      this.aReservationsArray = data;
+      this.aFilteredReservationsArray = data;
+     });
+    }
 
     /**
    * Sorts the reservations array by the specified column.
@@ -57,4 +65,20 @@ export class ReservationsComponent implements OnInit {
         }
       });
     }
+
+  /**
+   * Filters the reservations array based on the search query.
+   * The search query is searched in student name, email, phone, party name, and reservation status.
+   * The results are stored in the aFilteredReservationsArray.
+   */
+  filterReservations(): void {
+    const query = this.aSearchQuery.toLowerCase();
+    this.aFilteredReservationsArray = this.aReservationsArray.filter((reservation) =>
+      reservation.student_name.toLowerCase().includes(query) ||
+      reservation.student_email.toLowerCase().includes(query) ||
+      reservation.student_phone.toLowerCase().includes(query) ||
+      reservation.party_name.toLowerCase().includes(query) ||
+      reservation.reservation_status.toLowerCase().includes(query)
+    );
+  }
 }
